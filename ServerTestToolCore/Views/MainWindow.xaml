@@ -1,0 +1,42 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:ServerTestToolCore.ViewModels;assembly=ServerTestToolCore"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        x:Class="ServerTestToolCore.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="ServerTestToolCore"
+        Width="335" Height="355">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+  <Grid Margin="9,9,9,9" >
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="81"></ColumnDefinition>
+      <ColumnDefinition Width="81"></ColumnDefinition>
+      <ColumnDefinition Width="81"></ColumnDefinition>
+      <ColumnDefinition Width="335*"></ColumnDefinition>
+    </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions >
+      <RowDefinition Height="26"></RowDefinition>
+      <RowDefinition Height="355*"></RowDefinition>
+    </Grid.RowDefinitions>
+
+    <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+      <TextBlock Text="주소" Margin="0,5,0,0"/>
+      <!--<Label Content="주소"/>-->
+      <TextBox HorizontalAlignment="Stretch" Text="127.0.0.1" TextWrapping="Wrap" VerticalAlignment="Stretch" Margin="35,0,3,0"/>
+    </Grid>
+
+    <Grid Grid.Row="0" Grid.Column="2">
+      <TextBox HorizontalAlignment="Stretch" Text="65535" TextWrapping="Wrap" VerticalAlignment="Stretch" Margin="3,0,3,0"/>
+    </Grid>
+
+    <Grid Grid.Row="0" Grid.Column="3">
+      <Button x:Name="btnSetIp" Content="접속" Margin="3,0,3,0" />
+    </Grid>
+  </Grid>
+
+</Window>
