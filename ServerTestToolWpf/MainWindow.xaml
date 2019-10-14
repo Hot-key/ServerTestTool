@@ -5,33 +5,51 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ServerTestToolWpf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="355" Width="335" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+        Title="MainWindow" Height="355" Width="342" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" >
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="StaticValue.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
     <Grid Margin="9,3,9,3" >
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="81"></ColumnDefinition>
-            <ColumnDefinition Width="81"></ColumnDefinition>
-            <ColumnDefinition Width="81"></ColumnDefinition>
-            <ColumnDefinition Width="335*"></ColumnDefinition>
+            <ColumnDefinition Width="81*"></ColumnDefinition>
+            <ColumnDefinition Width="81*"></ColumnDefinition>
+            <ColumnDefinition Width="81*"></ColumnDefinition>
+            <ColumnDefinition Width="81*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions >
             <RowDefinition Height="26"></RowDefinition>
             <RowDefinition Height="26"></RowDefinition>
             <RowDefinition Height="26"></RowDefinition>
+            <RowDefinition Height="26"></RowDefinition>
+            <RowDefinition Height="26"></RowDefinition>
+            <RowDefinition Height="26"></RowDefinition>
+            <RowDefinition Height="26"></RowDefinition>
+            <RowDefinition Height="26"></RowDefinition>
             <RowDefinition Height="355*"></RowDefinition>
         </Grid.RowDefinitions>
+
+        <!--#region 접속설정-->
         <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
             <Label Content="주소" Grid.ColumnSpan="2"/>
-            <TextBox Text="127.0.0.1" TextWrapping="Wrap" Margin="35,3,3,3"/>
+            <TextBox x:Name="textBoxIp" Text="127.0.0.1" TextWrapping="Wrap" Margin="35,3,3,3"/>
         </Grid>
 
         <Grid Grid.Row="0" Grid.Column="2">
-            <TextBox HorizontalAlignment="Stretch" Text="65535" TextWrapping="Wrap" VerticalAlignment="Stretch" Margin="3,3,3,3"/>
+            <TextBox x:Name="textBoxPort" HorizontalAlignment="Stretch" Text="65535" TextWrapping="Wrap" VerticalAlignment="Stretch" Margin="3,3,3,3"/>
         </Grid>
 
         <Grid Grid.Row="0" Grid.Column="3">
             <Button x:Name="btnSetIp" Content="설정" Margin="3,3,3,3" />
         </Grid>
+        <!--#endregion-->
 
+        <!--#region 연결-->
         <Grid Grid.Row="1" Grid.Column="0">
             <Button x:Name="btnCon1" Content="1명 연결" Margin="3,3,3,3" />
         </Grid>
@@ -45,7 +63,108 @@
         </Grid>
 
         <Grid Grid.Row="1" Grid.Column="3">
-            <TextBox Text="1000" TextWrapping="Wrap" Margin="3,3,3,3" Grid.Column="1"/>
+            <TextBox x:Name="textBoxConCount" Text="1000" TextWrapping="Wrap" Margin="3,3,3,3" Grid.Column="1"/>
         </Grid>
+        <!--#endregion-->
+
+        <!--#region 연결 해제-->
+        <Grid Grid.Row="2" Grid.Column="0">
+            <Button x:Name="btnDiscon1" Content="1명 해제" Margin="3,3,3,3" />
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.Column="1">
+            <Button x:Name="btnDiscon100" Content="100명 해제" Margin="3,3,3,3" />
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.Column="2">
+            <Button x:Name="btnDisconCount" Content="n명 해제" Margin="3,3,3,3" />
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.Column="3">
+            <TextBox x:Name="textBoxDisconCount" Text="1000" TextWrapping="Wrap" Margin="3,3,3,3" Grid.Column="1"/>
+        </Grid>
+        <!--#endregion-->
+
+        <!--#region 전송-->
+        <Grid Grid.Row="3" Grid.Column="0">
+            <Button x:Name="btnSend1" Content="1개 전송" Margin="3,3,3,3" />
+        </Grid>
+
+        <Grid Grid.Row="3" Grid.Column="1">
+            <Button x:Name="btnSendCount" Content="n개 전송" Margin="3,3,3,3" />
+        </Grid>
+
+        <Grid Grid.Row="3" Grid.Column="2">
+            <Button x:Name="btnSendLoop" Content="n개 반복" Margin="3,3,3,3" />
+        </Grid>
+
+        <Grid Grid.Row="3" Grid.Column="3">
+            <TextBox x:Name="textBoxSendCount" Text="1000" TextWrapping="Wrap" Margin="3,3,3,3" Grid.Column="1"/>
+        </Grid>
+        <!--#endregion-->
+
+        <!--#region 접속 수-->
+        <Grid Grid.Row="4" Grid.Column="0">
+            <Label Content="연결 : " />
+            <Label x:Name="labelConCount" Content="15,000" Margin="36,0,0,0"/>
+        </Grid>
+
+        <Grid Grid.Row="4" Grid.Column="1">
+            <Label x:Name="labelDisconCount" Content="15,000" Margin="36,0,0,0"/>
+        </Grid>
+
+        <Grid Grid.Row="4" Grid.Column="2">
+            <Label x:Name="labelConAllCount" Content="15,000" Margin="36,0,0,0"/>
+        </Grid>
+
+        <Grid Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="{StaticResource SpanAll}">
+            <Rectangle VerticalAlignment="Bottom" Fill="Black" Height="1"></Rectangle>
+        </Grid>
+        <!--#endregion-->
+        
+        <!--#region 전송 수-->
+        <Grid Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2">
+            <Label Content="전송 : " />
+            <Label x:Name="labelSendCount" Content="15,000" Margin="36,0,0,0"/>
+        </Grid>
+
+        <Grid Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2">
+            <Label x:Name="labelSendAllCount" Content="15,000" Margin="36,0,0,0"/>
+        </Grid>
+        <!--#endregion-->
+
+        <!--#region 받은 수-->
+        <Grid Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2">
+            <Label Content="받음 : " />
+            <Label x:Name="labelRecvCount" Content="15,000" Margin="36,0,0,0"/>
+        </Grid>
+
+        <Grid Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2">
+            <Label x:Name="labelRecvAllCount" Content="15,000" Margin="36,0,0,0"/>
+        </Grid>
+
+        <Grid Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="{StaticResource SpanAll}">
+            <Rectangle VerticalAlignment="Bottom" Fill="Black" Height="1"></Rectangle>
+        </Grid>
+        <!--#endregion-->
+
+        <!--#region 합계 수-->
+        <Grid Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2">
+            <Label Content="합계 : " />
+            <Label x:Name="labelSumCount" Content="15,000" Margin="36,0,0,0"/>
+        </Grid>
+
+        <Grid Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2">
+            <Label x:Name="labelSumAllCount" Content="15,000" Margin="36,0,0,0"/>
+        </Grid>
+
+        <Grid Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="{StaticResource SpanAll}">
+            <Rectangle VerticalAlignment="Bottom" Fill="Black" Height="1"></Rectangle>
+        </Grid>
+        <!--#endregion-->
+
+        <!--#region 버퍼설정-->
+
+        <!--#endregion-->
     </Grid>
 </Window>

@@ -92,6 +92,9 @@ namespace ServerTestTool.Network
 
         private static void tcpSession_Closed(object sender, EventArgs e)
         {
+            AsyncTcpSession session = sender as AsyncTcpSession;
+
+            _tcpSession.Remove(session);
             Interlocked.Decrement(ref connectCount);
         }
 

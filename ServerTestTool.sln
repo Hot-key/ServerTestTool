@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Blend for Visual Studio Version 16
+# Visual Studio Version 16
 VisualStudioVersion = 16.0.29209.62
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerTestTool", "ServerTestTool\ServerTestTool.csproj", "{6A565A47-39A2-41B2-AE7C-E74CACBB521C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServerTestToolWpf", "ServerTestToolWpf\ServerTestToolWpf.csproj", "{449DA648-DE8B-4D33-9600-9346AA2A9A9A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServerTestToolCore", "ServerTestToolCore\ServerTestToolCore.csproj", "{3260ACBC-311F-42E5-AF8F-7CDE759AE01B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{449DA648-DE8B-4D33-9600-9346AA2A9A9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{449DA648-DE8B-4D33-9600-9346AA2A9A9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{449DA648-DE8B-4D33-9600-9346AA2A9A9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3260ACBC-311F-42E5-AF8F-7CDE759AE01B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3260ACBC-311F-42E5-AF8F-7CDE759AE01B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3260ACBC-311F-42E5-AF8F-7CDE759AE01B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3260ACBC-311F-42E5-AF8F-7CDE759AE01B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
